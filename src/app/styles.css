@@ -1,0 +1,10 @@
+@import '../../node_modules/@angular/material/prebuilt-themes/purple-green.css';
+
+.links {
+  border: 1px solid black;
+  background-color: lightyellow;
+}
+
+.title {
+
+}
