@@ -1,8 +1,8 @@
-export interface RemovalItem {
-  id: number;
-  type: string;
-  quantity: number;
-  roomId: number;
+export class RemovalItem {
+  constructor(public id: number,
+              public type: string,
+              public quantity: number,
+              public roomId: number) {  }
 }
 
 export const REMOVAL_ITEM_TYPES: string[] = [

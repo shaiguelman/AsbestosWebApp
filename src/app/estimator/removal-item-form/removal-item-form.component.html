@@ -1,0 +1,16 @@
+<div>
+  <form (ngSubmit)="onSubmitItem()">
+    <label for="selectItemType">Item type: </label>
+    <select [(ngModel)]="removalItem.type" name="type"
+            id="selectItemType">
+      <option *ngFor="let itemType of removalItemTypes" value="{{itemType}}">{{itemType}}</option>
+    </select>
+    <br>
+    <label for="quantityInput">Quantity: </label>
+    <input type="number" value="0" id="quantityInput"
+    required [(ngModel)]="removalItem.quantity" name="quantity">
+    <label> ft^2</label>
+    <br>
+    <input *ngIf="removalItem.type" type="submit" value="Submit">
+  </form>
+</div>

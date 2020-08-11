@@ -4,11 +4,10 @@
 
 <div>
   <label for="selectRoomType">Select room type: </label>
-  <select #selectElement
-          (change)="onRoomSelect(selectElement.value)"
+  <select [(ngModel)]="selectedRoomType" name="roomType"
           id="selectRoomType">
     <option value="">{{selectRoomPlaceholder}}</option>
-    <option *ngFor="let roomType of roomTypes" value="roomType">{{roomType}}</option>
+    <option *ngFor="let roomType of roomTypes" value="{{roomType}}">{{roomType}}</option>
   </select>
   <br>
 </div>
@@ -19,16 +18,18 @@
   <br>
   <br>
 
-  <div>
-    <form>
-      <label for="selectItemType">Item type: </label>
-      <select id="selectItemType">
-        <option *ngFor="let itemType of removalItemTypes" value="{{itemType}}">{{itemType}}</option>
-      </select>
-      <br>
-      <label for="quantityInput">Quantity: </label>
-      <input type="number" value="0" id="quantityInput">
-      <label> ft^2</label>
-    </form>
+  <app-removal-item-form></app-removal-item-form>
+
+  <br>
+  <br>
+
+  <h3>Current Items</h3>
+  <br>
+  <div *ngFor="let item of componentItems">
+    <p>Id: {{item.id}}</p>
+    <br>
+    <p>Item Type: {{item.type}}</p>
+    <br>
+    <p>Quantity: {{item.quantity}}</p>
   </div>
 </div>

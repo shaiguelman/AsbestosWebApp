@@ -1,30 +1,30 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input} from '@angular/core';
 import {ROOM_TYPES} from './room';
-import {REMOVAL_ITEM_TYPES} from './removal-item';
+import {RemovalItem} from './removal-item';
+import {EstimatorDataService} from './estimator-data.service';
+import {Observable, Subscription} from 'rxjs';
 
 @Component({
   selector: 'app-estimator',
   templateUrl: './estimator.component.html',
-  styleUrls: ['../styles.css', './estimator.component.css']
+  styleUrls: ['../styles.css', './estimator.component.css'],
 })
-export class EstimatorComponent implements OnInit {
+export class EstimatorComponent {
   roomTypes = ROOM_TYPES;
   selectRoomPlaceholder = 'Select room type';
   selectedRoomType = '';
 
-  removalItemTypes = REMOVAL_ITEM_TYPES;
-  selectedItemType = '';
+  @Input() componentItems: RemovalItem[];
+  private itemsObservable: Observable<RemovalItem[]>;
+  private itemsObserver: Subscription;
 
-  constructor() {
+  constructor(private service: EstimatorDataService) {
+    this.itemsObservable = this.service.itemsObservable;
+
+    this.itemsObserver = this.service.itemsObservable.subscribe(this.observerFunc);
   }
 
-  ngOnInit(): void {
-  }
-
-  onRoomSelect(roomType: string): void {
-    if (roomType === this.selectRoomPlaceholder) {
-      roomType = '';
-    }
-    this.selectedRoomType = roomType;
+  observerFunc = (items: RemovalItem[]) => {
+    this.componentItems = items;
   }
 }
