@@ -1,5 +1,5 @@
 import {Component, Input} from '@angular/core';
-import {ROOM_TYPES} from './room';
+import {Room, ROOM_TYPES} from './room';
 import {RemovalItem} from './removal-item';
 import {EstimatorDataService} from './estimator-data.service';
 import {Observable, Subscription} from 'rxjs';
@@ -12,19 +12,43 @@ import {Observable, Subscription} from 'rxjs';
 export class EstimatorComponent {
   roomTypes = ROOM_TYPES;
   selectRoomPlaceholder = 'Select room type';
-  selectedRoomType = '';
+  room: Room;
 
   @Input() componentItems: RemovalItem[];
   private itemsObservable: Observable<RemovalItem[]>;
   private itemsObserver: Subscription;
 
+  rooms: Room[];
+  submitRoomErrorMessage: string;
+
   constructor(private service: EstimatorDataService) {
     this.itemsObservable = this.service.itemsObservable;
 
-    this.itemsObserver = this.service.itemsObservable.subscribe(this.observerFunc);
+    const nextFunc = (items: RemovalItem[]) => {
+      this.componentItems = items;
+    };
+    const errorFunc = (error: Error) => {
+      console.log(error.message);
+    };
+    this.itemsObserver = this.service.itemsObservable.subscribe(nextFunc, errorFunc);
+
+    this.rooms = service.getRooms();
   }
 
-  observerFunc = (items: RemovalItem[]) => {
-    this.componentItems = items;
+  newRoom(): void {
+    this.room = this.service.addRoom();
+  }
+
+  onSubmitRoom(): void {
+    if (!this.room.type) {
+      this.submitRoomErrorMessage = 'Must select room type';
+    }
+    else if (!this.room.name) {
+      this.submitRoomErrorMessage = 'Must use valid room name';
+    }
+    else {
+      this.room = null;
+      this.submitRoomErrorMessage = null;
+    }
   }
 }

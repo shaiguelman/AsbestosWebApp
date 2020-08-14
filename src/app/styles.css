@@ -8,3 +8,14 @@
 .title {
 
 }
+
+.container {
+  overflow: hidden;
+}
+
+.error-message {
+  border: 1px solid black;
+  background-color: palevioletred;
+  opacity: .3;
+  padding: 20px;
+}

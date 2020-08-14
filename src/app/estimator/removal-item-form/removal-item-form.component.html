@@ -3,14 +3,18 @@
     <label for="selectItemType">Item type: </label>
     <select [(ngModel)]="removalItem.type" name="type"
             id="selectItemType">
+      <option value=''>Select item type</option>
       <option *ngFor="let itemType of removalItemTypes" value="{{itemType}}">{{itemType}}</option>
     </select>
     <br>
     <label for="quantityInput">Quantity: </label>
     <input type="number" value="0" id="quantityInput"
     required [(ngModel)]="removalItem.quantity" name="quantity">
-    <label> ft^2</label>
+    <label> ft<sup>2</sup></label>
     <br>
-    <input *ngIf="removalItem.type" type="submit" value="Submit">
+    <input type="submit" value="Add item">
   </form>
+</div>
+<div class="error-message" *ngIf="errorMessage">
+  <p>{{errorMessage}}</p>
 </div>
