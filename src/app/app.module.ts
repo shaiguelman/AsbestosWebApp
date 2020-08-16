@@ -11,6 +11,7 @@ import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatSelectModule} from '@angular/material/select';
 import {FormsModule} from '@angular/forms';
 import { RemovalItemFormComponent } from './estimator/removal-item-form/removal-item-form.component';
+import { ResultsComponent } from './results/results.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { RemovalItemFormComponent } from './estimator/removal-item-form/removal-
     AboutAsbestosComponent,
     WelcomeComponent,
     EstimatorComponent,
-    RemovalItemFormComponent
+    RemovalItemFormComponent,
+    ResultsComponent
   ],
   imports: [
     BrowserModule,

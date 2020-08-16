@@ -8,13 +8,11 @@
     </select>
     <br>
     <label for="quantityInput">Quantity: </label>
-    <input type="number" value="0" id="quantityInput"
+    <input type="number" min="0.0" value="0.0" step="0.1" id="quantityInput"
     required [(ngModel)]="removalItem.quantity" name="quantity">
     <label> ft<sup>2</sup></label>
     <br>
     <input type="submit" value="Add item">
   </form>
 </div>
-<div class="error-message" *ngIf="errorMessage">
-  <p>{{errorMessage}}</p>
-</div>
+<p class="error-message" *ngIf="errorMessage">{{errorMessage}}</p>

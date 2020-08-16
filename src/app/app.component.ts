@@ -4,7 +4,7 @@ import {Title} from '@angular/platform-browser';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./styles.css']
+  styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnInit{
 

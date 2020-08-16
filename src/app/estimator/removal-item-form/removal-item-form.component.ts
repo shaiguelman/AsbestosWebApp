@@ -1,4 +1,4 @@
-import { Component} from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import {RemovalItem, REMOVAL_ITEM_TYPES} from '../removal-item';
 import {EstimatorDataService} from '../estimator-data.service';
 
@@ -7,11 +7,12 @@ import {EstimatorDataService} from '../estimator-data.service';
   templateUrl: './removal-item-form.component.html',
   styleUrls: ['./removal-item-form.component.css', '../../styles.css']
 })
-export class RemovalItemFormComponent{
+export class RemovalItemFormComponent implements OnInit{
 
+  @Input() roomId: number;
   removalItemTypes = REMOVAL_ITEM_TYPES;
 
-  removalItem = new RemovalItem();
+  removalItem: RemovalItem;
   errorMessage: string;
 
   constructor(private service: EstimatorDataService) { }
@@ -26,7 +27,11 @@ export class RemovalItemFormComponent{
     else {
       this.errorMessage = '';
       this.service.addItem(this.removalItem);
-      this.removalItem = new RemovalItem();
+      this.removalItem = RemovalItem.createItem(this.roomId);
     }
+  }
+
+  ngOnInit(): void {
+    this.removalItem = RemovalItem.createItem(this.roomId);
   }
 }

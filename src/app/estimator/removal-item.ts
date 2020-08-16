@@ -14,6 +14,10 @@ export class RemovalItem {
     this.quantity = quantity ?? 0;
     this.roomId = roomId ?? 0;
   }
+
+  static createItem(roomId: number): RemovalItem {
+    return new RemovalItem(0, '', 0, roomId);
+  }
 }
 
 export const REMOVAL_ITEM_TYPES: string[] = [

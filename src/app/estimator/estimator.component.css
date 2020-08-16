@@ -1,7 +1,55 @@
+.estimator-lists {
+  list-style-type: none;
+}
+
+.selected {
+  background: blueviolet;
+}
+
+.unselected {
+  background: mediumseagreen;
+}
+
+.container {
+  overflow: auto;
+  min-height: 400px;
+
+}
+
+.clearfix::after {
+  content: " ";
+  display: block;
+  height: 0;
+  clear: both;
+}
+
+#menu {
+  float: left;
+}
+
 #items-list {
-  float: right;
+  margin: 10px;
+  display: flex;
+  flex-flow: row wrap;
+  padding-left: 0;
 }
 
 #rooms-list {
-  float: left;
+  float: right;
+}
+
+#room-button {
+  border: 1px groove black;
+  border-radius: 20px;
+  width: 200px;
+  padding: 5px;
+  margin: 10px 50px;
+}
+
+#removal-item {
+  border: 1px groove black;
+  background-color: red;
+  width: 40px;
+  padding: 5px;
+  font-size: 8pt;
 }

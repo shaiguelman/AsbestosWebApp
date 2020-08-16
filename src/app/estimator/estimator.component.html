@@ -1,48 +1,49 @@
-<div class="title">
-  <h1>Estimator</h1>
-</div>
-
-<button *ngIf="!room" (click)="newRoom()">New Room</button>
-<div *ngIf="room">
-  <label for="selectRoomType">Select room type: </label>
-  <select [(ngModel)]="room.type" name="roomType"
-          id="selectRoomType">
-    <option value="">{{selectRoomPlaceholder}}</option>
-    <option *ngFor="let roomType of roomTypes" value="{{roomType}}">{{roomType}}</option>
-  </select>
-  <br>
-  <label for="roomNameInput">Room name: </label>
-  <input type="text" [(ngModel)]="room.name" id="roomNameInput">
-  <br>
-  <button (click)="onSubmitRoom()">Add room</button>
-  <div class="error-message" *ngIf="submitRoomErrorMessage">
-    <p>{{submitRoomErrorMessage}}</p>
-  </div>
-  <br><br>
-
-  <app-removal-item-form></app-removal-item-form>
-  <br><br>
-</div>
+<h1 class="title">Estimator</h1>
 
 <div class="container">
-
-  <div id="rooms-list">
-    <h3>Rooms</h3>
+  <button *ngIf="!selectedRoom" (click)="newRoom()">New Room</button>
+  <div *ngIf="selectedRoom" id="menu">
+    <label for="selectRoomType">Select room type: </label>
+    <select [(ngModel)]="selectedRoom.type" name="roomType"
+            id="selectRoomType">
+      <option value="">{{selectRoomPlaceholder}}</option>
+      <option *ngFor="let roomType of roomTypes" value="{{roomType}}">{{roomType}}</option>
+    </select>
     <br>
-    <div *ngFor="let room of rooms" id="room-button" class="mat-button">
-      <h4>{{room.name}}</h4>
-      <p>{{room.type}}</p>
-      <br>
-    </div>
+    <label for="roomNameInput">Room name: </label>
+    <input type="text" [(ngModel)]="selectedRoom.name" id="roomNameInput">
+    <br>
+    <button (click)="onSubmitRoom()">Finish Editing room</button>
+
+    <p class="error-message" *ngIf="submitRoomErrorMessage">{{submitRoomErrorMessage}}</p>
+
+    <br><br>
+    <app-removal-item-form *ngIf="selectedRoom.id" [roomId]="selectedRoom.id"></app-removal-item-form>
+    <br><br>
   </div>
 
-  <div id="items-list" *ngIf="room">
-    <h3>Items in {{room.name}}</h3>
+  <div style="float: right">
+    <h3 style="margin-right: 100px">Rooms</h3>
     <br>
-    <div *ngFor="let item of componentItems">
-      <p>Item Type: {{item.type}}</p>
-      <br>
-      <p>Quantity: {{item.quantity}} ft<sup>2</sup></p>
-    </div>
+    <ul>
+      <li *ngFor="let room of rooms"
+          id="room-button"
+          class="estimator-lists"
+          [class.selected]="selectedRoom === room"
+          [class.unselected]="selectedRoom !== room"
+          (click)="chooseRoom(room)">
+        <h4>{{room.name}}</h4>
+        <p>{{room.type}}</p>
+        <br>
+        <ul id="items-list" *ngIf="selectedRoom && componentItems.length">
+          <li *ngFor="let item of componentItems"
+              id="removal-item"
+              class="estimator-lists">
+            <p>{{item.type}}</p>
+            <p>{{item.quantity}} ft<sup>2</sup></p>
+          </li>
+        </ul>
+      </li>
+    </ul>
   </div>
 </div>
