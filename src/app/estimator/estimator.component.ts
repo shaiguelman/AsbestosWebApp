@@ -7,7 +7,7 @@ import {Observable, Subscription} from 'rxjs';
 @Component({
   selector: 'app-estimator',
   templateUrl: './estimator.component.html',
-  styleUrls: ['./estimator.component.css'],
+  styleUrls: ['../app.component.css', './estimator.component.css'],
 })
 export class EstimatorComponent {
   roomTypes = ROOM_TYPES;
@@ -58,5 +58,9 @@ export class EstimatorComponent {
       this.selectedRoom = room;
       this.componentItems = this.service.getItems(room.id);
     }
+  }
+
+  submitEstimate(): void {
+
   }
 }

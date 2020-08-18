@@ -1,7 +1,12 @@
 @import '../../node_modules/@angular/material/prebuilt-themes/purple-green.css';
 
-button {
+ul {
+  padding: 0;
+  margin: 0;
+}
 
+li {
+  text-align: center;
 }
 
 .links {

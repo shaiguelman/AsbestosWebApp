@@ -13,18 +13,13 @@
 .container {
   overflow: auto;
   min-height: 400px;
-
-}
-
-.clearfix::after {
-  content: " ";
-  display: block;
-  height: 0;
-  clear: both;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
 }
 
 #menu {
-  float: left;
+
 }
 
 #items-list {
@@ -35,7 +30,7 @@
 }
 
 #rooms-list {
-  float: right;
+
 }
 
 #room-button {
@@ -43,7 +38,7 @@
   border-radius: 20px;
   width: 200px;
   padding: 5px;
-  margin: 10px 50px;
+  margin-top: 10px;
 }
 
 #removal-item {
