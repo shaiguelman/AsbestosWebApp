@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import {RemovalItem} from './removal-item';
+import {REMOVAL_ITEM_PRICES, RemovalItem} from './removal-item';
 import {Observable, Subject} from 'rxjs';
 import {Room} from './room';
 
@@ -52,5 +52,24 @@ export class EstimatorDataService {
 
   calculate(): number {
     return 1000;
+  }
+
+  getTotPrice(): number {
+    const COST_OF_AIR_SCRUBBER = 100;
+    const ROOMS_PER_AIR_SCRUBBER = 3.0;
+    const DISPOSAL = 500;
+    const VARIABLE_COSTS = .075;
+    const MINIMUM_COST = 1500;
+
+    const itemsPrice = this._items
+      .map(item => REMOVAL_ITEM_PRICES.get(item.type) * item.quantity)
+      .reduce((sum, cur) => sum + cur, 0);
+
+    const costOfJob = Math.round((1 + VARIABLE_COSTS) * itemsPrice
+      + (COST_OF_AIR_SCRUBBER
+        * Math.ceil(this._rooms.length / ROOMS_PER_AIR_SCRUBBER))
+      + DISPOSAL);
+
+    return Math.max(costOfJob , MINIMUM_COST + costOfJob * .1);
   }
 }

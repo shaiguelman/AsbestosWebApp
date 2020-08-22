@@ -5,7 +5,7 @@ import {EstimatorDataService} from '../estimator-data.service';
 @Component({
   selector: 'app-removal-item-form',
   templateUrl: './removal-item-form.component.html',
-  styleUrls: ['./removal-item-form.component.css', '../../styles.css']
+  styleUrls: ['./removal-item-form.component.css']
 })
 export class RemovalItemFormComponent implements OnInit{
 

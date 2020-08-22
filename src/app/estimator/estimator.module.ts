@@ -4,6 +4,7 @@ import {EstimatorComponent} from './estimator.component';
 import {RemovalItemFormComponent} from './removal-item-form/removal-item-form.component';
 import {ResultsComponent} from './results/results.component';
 import {FormsModule} from '@angular/forms';
+import {RouterModule} from '@angular/router';
 
 
 
@@ -13,7 +14,8 @@ import {FormsModule} from '@angular/forms';
     ResultsComponent],
   imports: [
     CommonModule,
-    FormsModule
+    FormsModule,
+    RouterModule
   ]
 })
 export class EstimatorModule { }

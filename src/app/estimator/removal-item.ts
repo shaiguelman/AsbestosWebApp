@@ -23,3 +23,10 @@ export class RemovalItem {
 export const REMOVAL_ITEM_TYPES: string[] = [
   'Tile', 'Drywall', 'Insulation', 'Popcorn Ceiling'
 ];
+
+export const REMOVAL_ITEM_PRICES: Map<string, number> = new Map([
+  ['Tile', 5.0],
+  ['Drywall', 1.84],
+  ['Insulation', 0.26],
+  ['Popcorn Ceiling', 4.0]
+]);

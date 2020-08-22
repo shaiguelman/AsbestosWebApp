@@ -1,6 +1,6 @@
 <h1 class="title">Estimator</h1>
 
-<div class="container">
+<div class="container" *ngIf="!showingResult">
   <div>
     <button *ngIf="!selectedRoom" (click)="newRoom()">New Room</button>
     <div *ngIf="selectedRoom" id="menu">
@@ -53,3 +53,5 @@
     </ul>
   </div>
 </div>
+
+<app-results *ngIf="showingResult" [price]="price"></app-results>
