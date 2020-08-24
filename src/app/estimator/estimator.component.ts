@@ -20,7 +20,7 @@ export class EstimatorComponent {
 
   rooms: Room[];
   submitRoomErrorMessage: string;
-  showingResult = false;
+  showingResult = {show: false};
   price: number;
 
   constructor(private service: EstimatorDataService) {
@@ -63,7 +63,11 @@ export class EstimatorComponent {
   }
 
   submitEstimate(): void {
-    this.showingResult = true;
+    this.showingResult.show = true;
     this.price = this.service.getTotPrice();
+  }
+
+  clearItem(item: RemovalItem): void {
+    this.service.removeItem(item.id);
   }
 }

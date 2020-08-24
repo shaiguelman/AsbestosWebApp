@@ -1,5 +1,4 @@
-import {Component, Input, Output} from '@angular/core';
-import {EstimatorDataService} from '../estimator-data.service';
+import {Component, Input} from '@angular/core';
 
 @Component({
   selector: 'app-results',
@@ -9,14 +8,11 @@ import {EstimatorDataService} from '../estimator-data.service';
 export class ResultsComponent {
 
   @Input() price: number;
-  @Output() showingResult = true;
-  observer = this.service.itemsObservable.subscribe(() => {
-    this.price = this.service.getTotPrice();
-  });
+  @Input() showingResult: {show: boolean};
 
-  constructor(private service: EstimatorDataService) { }
+  constructor() { }
 
   goBack(): void {
-    this.showingResult = false;
+    this.showingResult.show = false;
   }
 }

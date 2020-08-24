@@ -5,13 +5,15 @@ import {RemovalItemFormComponent} from './removal-item-form/removal-item-form.co
 import {ResultsComponent} from './results/results.component';
 import {FormsModule} from '@angular/forms';
 import {RouterModule} from '@angular/router';
+import { EstimatorCalculatorComponent } from './estimator-calculator/estimator-calculator.component';
 
 
 
 @NgModule({
   declarations: [EstimatorComponent,
     RemovalItemFormComponent,
-    ResultsComponent],
+    ResultsComponent,
+    EstimatorCalculatorComponent],
   imports: [
     CommonModule,
     FormsModule,

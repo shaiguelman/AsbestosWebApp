@@ -48,3 +48,12 @@
   padding: 5px;
   font-size: 8pt;
 }
+
+#remove-item-button {
+  border: 1px groove black;
+  background-color: darkgray;
+  width: 38px;
+  font-size: 6pt;
+  text-align: left;
+  padding-left: 1px;
+}

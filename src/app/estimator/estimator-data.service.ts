@@ -27,6 +27,12 @@ export class EstimatorDataService {
     console.log(`Submitted Item ${item.id} to ${item.roomId} of type ${item.type}: ${item.quantity} ft squared`);
   }
 
+  removeItem(id: number): void {
+    const index = this._items.findIndex(item => item.id === id);
+    this._items.splice(index, 1);
+    this._itemsObservable.next();
+  }
+
   getItem(id: number): RemovalItem {
     return this._items.find(item => item.id === id);
   }
