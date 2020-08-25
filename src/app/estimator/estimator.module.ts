@@ -4,8 +4,8 @@ import {EstimatorComponent} from './estimator.component';
 import {RemovalItemFormComponent} from './removal-item-form/removal-item-form.component';
 import {ResultsComponent} from './results/results.component';
 import {FormsModule} from '@angular/forms';
-import {RouterModule} from '@angular/router';
 import { EstimatorCalculatorComponent } from './estimator-calculator/estimator-calculator.component';
+import {EstimatorRoutingModule} from './estimator-routing.module';
 
 
 
@@ -17,7 +17,7 @@ import { EstimatorCalculatorComponent } from './estimator-calculator/estimator-c
   imports: [
     CommonModule,
     FormsModule,
-    RouterModule
+    EstimatorRoutingModule
   ]
 })
 export class EstimatorModule { }

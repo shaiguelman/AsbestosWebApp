@@ -8,7 +8,9 @@ import {EstimatorComponent} from './estimator/estimator.component';
 const routes: Routes = [
   {path: '', component: WelcomeComponent},
   {path: 'about_asbestos', component: AboutAsbestosComponent},
-  {path: 'estimator', component: EstimatorComponent}
+  {path: 'estimator',
+    component: EstimatorComponent,
+    loadChildren: './estimator/estimator.module#EstimatorModule'}
 ];
 
 @NgModule({
