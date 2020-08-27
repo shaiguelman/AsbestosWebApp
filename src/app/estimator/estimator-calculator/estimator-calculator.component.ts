@@ -1,8 +1,8 @@
 import {Component, Input} from '@angular/core';
-import {Room, ROOM_TYPES} from '../room';
-import {RemovalItem} from '../removal-item';
+import {Room, ROOM_TYPES} from '../util/room';
+import {RemovalItem} from '../util/removal-item';
 import {Observable, Subscription} from 'rxjs';
-import {EstimatorDataService} from '../estimator-data.service';
+import {EstimatorDataService} from '../util/estimator-data.service';
 
 @Component({
   selector: 'app-estimator-calculator',

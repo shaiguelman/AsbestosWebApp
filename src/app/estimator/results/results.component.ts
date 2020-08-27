@@ -1,5 +1,5 @@
 import {Component} from '@angular/core';
-import {EstimatorDataService} from '../estimator-data.service';
+import {EstimatorDataService} from '../util/estimator-data.service';
 
 @Component({
   selector: 'app-results',
