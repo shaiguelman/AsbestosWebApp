@@ -1,1 +1,5 @@
-
+.error-message {
+  color: red;
+  background-color: grey;
+  width: 50px;
+}

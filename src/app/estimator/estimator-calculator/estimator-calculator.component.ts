@@ -1,8 +1,8 @@
 import {Component, Input} from '@angular/core';
-import {Room, ROOM_TYPES} from '../room';
-import {RemovalItem} from '../removal-item';
+import {Room, ROOM_TYPES} from '../service/room';
+import {RemovalItem} from '../service/removal-item';
 import {Observable, Subscription} from 'rxjs';
-import {EstimatorDataService} from '../estimator-data.service';
+import {EstimatorDataService} from '../service/estimator-data.service';
 
 @Component({
   selector: 'app-estimator-calculator',
@@ -20,7 +20,6 @@ export class EstimatorCalculatorComponent{
 
   rooms: Room[];
   submitRoomErrorMessage: string;
-  price: number;
 
   constructor(private service: EstimatorDataService) {
     this.itemsObservable = this.service.itemsObservable;
@@ -63,5 +62,9 @@ export class EstimatorCalculatorComponent{
 
   clearItem(item: RemovalItem): void {
     this.service.removeItem(item.id);
+  }
+
+  clearData(): void {
+    this.service.clearData();
   }
 }

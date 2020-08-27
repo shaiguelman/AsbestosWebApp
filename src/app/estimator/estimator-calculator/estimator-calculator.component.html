@@ -22,6 +22,7 @@
     </div>
     <div *ngIf="!selectedRoom && rooms.length" style="margin-top: 100px">
       <a routerLink="results"><button>Estimate</button></a>
+      <button (click)="clearData()">Clear estimate</button>
       <h4>Click a room to edit it</h4>
     </div>
   </div>

@@ -56,10 +56,6 @@ export class EstimatorDataService {
     return room;
   }
 
-  calculate(): number {
-    return 1000;
-  }
-
   getTotPrice(): number {
     const COST_OF_AIR_SCRUBBER = 100;
     const ROOMS_PER_AIR_SCRUBBER = 3.0;
@@ -77,5 +73,11 @@ export class EstimatorDataService {
       + DISPOSAL);
 
     return Math.max(costOfJob , MINIMUM_COST + costOfJob * .1);
+  }
+
+  clearData(): void {
+    this._rooms.length = 0;
+    this._items.length = 0;
+    this._itemsObservable.next();
   }
 }
