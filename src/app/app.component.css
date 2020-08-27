@@ -1,5 +1,10 @@
 @import '../../node_modules/@angular/material/prebuilt-themes/purple-green.css';
 
+body {
+  background-image: url("../assets/city-background.jpeg");
+  background-size: cover;
+}
+
 ul {
   padding: 0;
   margin: 0;
@@ -10,10 +15,9 @@ li {
 }
 
 .links {
-  border: 1px solid black;
-  background-color: lightyellow;
-  margin-left: 10px;
-  margin-right: 50px;
+  background-color: darkgray;
+  color: blue;
+  padding: 15px;
 }
 
 .title {
@@ -29,4 +33,8 @@ li {
   background-color: palevioletred;
   opacity: .3;
   padding: 20px;
+}
+
+.app-content {
+  min-height: 90%;
 }

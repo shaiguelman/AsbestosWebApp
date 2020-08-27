@@ -2,8 +2,11 @@
 
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+button {
+  background-color: darkmagenta;
+  font-size: 15px;
+}
 
 .title {
-  border: black solid 1px;
-  background-color: greenyellow;
+  text-align: center;
 }

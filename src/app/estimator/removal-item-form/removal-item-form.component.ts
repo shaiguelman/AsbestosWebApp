@@ -1,6 +1,6 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {RemovalItem, REMOVAL_ITEM_TYPES} from '../service/removal-item';
-import {EstimatorDataService} from '../service/estimator-data.service';
+import {RemovalItem, REMOVAL_ITEM_TYPES} from '../removal-item';
+import {EstimatorDataService} from '../estimator-data.service';
 
 @Component({
   selector: 'app-removal-item-form',

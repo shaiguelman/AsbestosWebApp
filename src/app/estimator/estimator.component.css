@@ -3,3 +3,9 @@
   background-color: grey;
   width: 50px;
 }
+
+.title {
+  width: 200px;
+  margin-left: auto;
+  margin-right: auto;
+}
