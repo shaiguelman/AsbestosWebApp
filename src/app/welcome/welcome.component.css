@@ -1,12 +1,16 @@
-#welcome-text {
-  text-align: center;
-  font-size: 30px;
-  margin-top: 200px;
+a {
+  text-decoration: none;
 }
 
-#get-started-btn {
+.menu-item {
   align-content: center;
   margin-left: auto;
   margin-right: auto;
   display: block;
+}
+
+#welcome-text {
+  text-align: center;
+  font-size: 30px;
+  margin-top: 200px;
 }

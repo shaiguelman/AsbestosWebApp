@@ -6,7 +6,7 @@ import {WelcomeComponent} from './welcome/welcome.component';
 
 const routes: Routes = [
   {path: '', component: WelcomeComponent},
-  {path: 'about_asbestos', component: AboutAsbestosComponent},
+  {path: 'about-asbestos', component: AboutAsbestosComponent},
   {path: 'estimator',
     loadChildren: './estimator/estimator.module#EstimatorModule'}
 ];

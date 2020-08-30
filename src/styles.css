@@ -3,8 +3,11 @@
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 button {
-  background-color: darkmagenta;
+  background: darkmagenta linear-gradient(to bottom, #c123de 5%, #a20dbd 100%);
   font-size: 15px;
+}
+button:hover {
+  background: #a20dbd linear-gradient(to bottom, #a20dbd 5%, #c123de 100%);
 }
 
 .title {

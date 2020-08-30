@@ -16,7 +16,7 @@ li {
 
 .links {
   background-color: darkgray;
-  color: blue;
+  color: olive;
   padding: 15px;
 }
 
@@ -36,5 +36,5 @@ li {
 }
 
 .app-content {
-  min-height: 90%;
+  min-height: 86%;
 }
